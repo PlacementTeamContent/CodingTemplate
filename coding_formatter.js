@@ -1,7 +1,10 @@
 const fs = require("fs");
 const { v4 } = require("uuid");
 
-const parent_file_name = "Template";
+const dotenv = require("dotenv");
+dotenv.config();
+
+const parent_file_name = process.env.PARENT_JSON_FILE_NAME;
 const parent_file_path = "./parent_json/" + parent_file_name + ".json";
 const output_file_path = "./output_json/" + parent_file_name + "_formatted.json";
 
