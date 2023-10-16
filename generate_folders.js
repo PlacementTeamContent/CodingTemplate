@@ -23,7 +23,7 @@ function start() {
     try {
         createFolder(parent_json_path);
         createFolder(output_json_path);
-        createFile(env_path, "PARENT_JSON_FILE_NAME = ")
+        createFile(env_path, "PARENT_JSON_FILE_NAME=")
     } catch (error) {
       console.error("Error during processing:", error);
     }

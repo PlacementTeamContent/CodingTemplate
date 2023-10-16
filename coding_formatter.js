@@ -48,19 +48,19 @@ const extractQuestionsData = (parent_data) => {
     let question_text = "";
 
     parent_data.forEach(data => {
-        const problem_text = data["problem_text"];
+        const problem_text = data["QUESTION"];
         const short_text = data["short_text"];
-        const input_format = data["input_format"];
-        const output_format = data["output_format"];
-        const difficulty = data["difficulty"] || "XXXX";
-        const code_language = data["code_language"];
-        const code_data = data["code_data"];
-        const constraints = data["constraints"] || "";
+        const input_format = data["INPUT_FORMAT_TYPE"];
+        const output_format = data["OUTPUT_FORMAT_TYPE"];
+        const difficulty = data["DIFFICULTY"] || "XXXX";
+        const code_language = data["CODE_LANGUAGE"];
+        const code_data = data["SOLUTION CODE"];
+        const constraints = data["CONSTRAINTS"] || "";
         const company = data["company"] || "UNKNOWN";
-        const explanation = data["explanation"] || "";
-        const test_case_input = data["test_case_input"];
-        const test_case_output = data["test_case_output"];
-        const test_case_type = data["test_case_type"];
+        const explanation = data["SAMPLE INPUT-OUTPUT EXPLANATION"] || "";
+        const test_case_input = data["TEST_CASE_INPUT"];
+        const test_case_output = data["TEST_CASE_OUTPUT"];
+        const test_case_type = data["test_case_type"] || "DEFAULT";
         
 
         if (problem_text) {
@@ -188,7 +188,7 @@ const extractQuestionsData = (parent_data) => {
             "output": test_case_output,
             "is_hidden": is_hidden,
             "score": 1,
-            "testcase_type": "DEFAULT",
+            "testcase_type": test_case_type,
             "t_id": test_case_count
           }
           input_output[0]["input"].push(input);
